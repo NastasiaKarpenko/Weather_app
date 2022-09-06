@@ -10,13 +10,13 @@ function formatTime(date){
   }
   
   let days = [
-    "Sunday", 
-    "Monday", 
-    "Thuesday", 
-    "Wednesday", 
-    "Tuesday", 
-    "Friday", 
-    "Saturday"]
+    "Sun", 
+    "Mon", 
+    "Thu", 
+    "Wed", 
+    "Tue", 
+    "Fri", 
+    "Sat"]
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
