@@ -11,12 +11,12 @@ rel="stylesheet"
 integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
 crossorigin="anonymous">
 <link rel="stylesheet" 
-href="style/styles.css" 
+href="src/styles.css" 
 class="css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="style/index.js"></script>
+<script src="src/index.js"></script>
 </head>
-<body onload="main()">
+<!--body onload="main()"-->
 
   <div class="container">
     <!-- <div class="weather-app" -->
@@ -27,12 +27,12 @@ class="css">
            <div class="col-9">
             <div class="row"> <!--first one - cities + current>-->
                <div class="col-9">
-                    <div class="row">
-                      <div class="col"><a href="#" class="namedCity">Irpin</a></div>
-                      <div class="col"><a href="#" class="namedCity">Krakow</a></div>
-                      <div class="col"><a href="#" class="namedCity">Eindhoven</a></div>
-                      <div class="col"><a href="#" class="namedCity">Sofia</a></div>
-                      <div class="col"><a href="#" class="namedCity">Drogheda</a></div>
+                    <div class="row" id="namedCity">
+                      <div class="col"><a href="#" data-value="Irpin">Irpin</a></div>
+                      <div class="col"><a href="#" class="">Krakow</a></div>
+                      <div class="col"><a href="#" class="">Eindhoven</a></div>
+                      <div class="col"><a href="#" class="">Sofia</a></div>
+                      <div class="col"><a href="#" class="">Drogheda</a></div>
                     </div>
                </div>
                <div class="col-3">
