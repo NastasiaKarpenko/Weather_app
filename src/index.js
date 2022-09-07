@@ -13,21 +13,21 @@ let days = [
 
 let webAdress = `https://api.openweathermap.org/data/2.5/weather?`;
 
-let temperature = Math.round(response.data.main.temp);
+// let temperature = Math.round(response.data.main.temp);
 let temperatureElement = document.querySelector("#temperature");
   
-let humidityToday = Math.round(response.data.main.humidity);
+// let humidityToday = Math.round(response.data.main.humidity);
 let humidity = document.querySelector("#humidityToday");
 
-let windSpeedToday = Math.round(response.data.wind.speed);
+// let windSpeedToday = Math.round(response.data.wind.speed);
 let windSpeed = document.querySelector("#windSpeedToday");
 
-let cityName = document.querySelector("#city")
-let foundedCity = response.data.name;
-let cityInput = document.querySelector("#inputCity")
+let cityName = document.querySelector("#city");
+// let foundedCity = response.data.name;
+let cityInput = document.querySelector("#inputCity");
 
-let latitude = position.coords.latitude;
-let longitude = position.coords.longitude;
+// let latitude = position.coords.latitude;
+// let longitude = position.coords.longitude;
 
 
 function main() {
@@ -94,15 +94,15 @@ cityName.innerHTML = cityInput.value;
 
   function showTemperatureWindSpeedHumidity (response){
  console.log(response.data);
-  // let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(response.data.main.temp);
   // let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = temperature;
 
-  // let humidityToday = Math.round(response.data.main.humidity);
+  let humidityToday = Math.round(response.data.main.humidity);
   // let humidity = document.querySelector("#humidityToday");
   humidity.innerHTML = humidityToday;
 
-  // let windSpeedToday = Math.round(response.data.wind.speed);
+  let windSpeedToday = Math.round(response.data.wind.speed);
   // //console.log(windSpeedToday);
   // let windSpeed = document.querySelector("#windSpeedToday");
   windSpeed.innerHTML = windSpeedToday;
@@ -120,26 +120,26 @@ function showPosition (position) {
   function showTemperatureWindSpeedHumidityCity (response){
     console.log(response);
  
-    // let temperature = Math.round(response.data.main.temp);
+    let temperature = Math.round(response.data.main.temp);
     // let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = temperature;
   
-    // let humidityToday = Math.round(response.data.main.humidity);
+    let humidityToday = Math.round(response.data.main.humidity);
     // let humidity = document.querySelector("#humidityToday");
     humidity.innerHTML = humidityToday;
   
-    // let windSpeedToday = Math.round(response.data.wind.speed);
+    let windSpeedToday = Math.round(response.data.wind.speed);
     // //console.log(windSpeedToday);
     // let windSpeed = document.querySelector("#windSpeedToday");
     windSpeed.innerHTML = windSpeedToday;
 
     // let cityName = document.querySelector("#city")
-    // let foundedCity = response.data.name;
+    let foundedCity = response.data.name;
     cityName.innerHTML = foundedCity;
     }
 
-// let latitude = position.coords.latitude;
-// let longitude = position.coords.longitude;
+let latitude = position.coords.latitude;
+let longitude = position.coords.longitude;
 // let apiKey = `fdaeb70f86d9811e4917af5701e5fdf2`;
 // let webAdress = `https://api.openweathermap.org/data/2.5/weather?`;
 // let unit = `metric`;
@@ -175,6 +175,12 @@ let apiURL = `${webAdress}q=${city}&appid=${apiKey}&units=${unit}`;
 console.log(apiURL);
 // axios.get(apiURL).then(showEverything);
   }
+
+
+
+
+
+
 
 
 
