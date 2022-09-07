@@ -87,24 +87,32 @@ function getCurrentPosition() {
 
 function search(event) {
   event.preventDefault();
-// let cityName = document.querySelector("#city")
-// let cityInput = document.querySelector("#inputCity")
+let cityName = document.querySelector("#city")
+let cityInput = document.querySelector("#inputCity")
 cityName.innerHTML = cityInput.value;
 
   function showTemperatureWindSpeedHumidity (response){
  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
-  // let temperatureElement = document.querySelector("#temperature");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = temperature;
 
   let humidityToday = Math.round(response.data.main.humidity);
-  // let humidity = document.querySelector("#humidityToday");
+  let humidity = document.querySelector("#humidityToday");
   humidity.innerHTML = humidityToday;
 
   let windSpeedToday = Math.round(response.data.wind.speed);
   // //console.log(windSpeedToday);
-  // let windSpeed = document.querySelector("#windSpeedToday");
+  let windSpeed = document.querySelector("#windSpeedToday");
   windSpeed.innerHTML = windSpeedToday;
+
+  let iconElement =  document.querySelector("#icon")
+iconElement.setAttribute(
+  "src", 
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute(
+  "alt",
+  response.data.weather[0].description);
   }
 
 // let apiKey = `fdaeb70f86d9811e4917af5701e5fdf2`;
@@ -135,6 +143,14 @@ function showPosition (position) {
     let cityName = document.querySelector("#city")
     let foundedCity = response.data.name;
     cityName.innerHTML = foundedCity;
+
+    let iconElement =  document.querySelector("#icon")
+iconElement.setAttribute(
+  "src", 
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute(
+  "alt",
+  response.data.weather[0].description);
     }
 
 let latitude = position.coords.latitude;
