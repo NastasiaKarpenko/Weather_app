@@ -21,7 +21,6 @@ function formatTime(date){
   return `${day}, ${hours}:${minutes}`;
 }
 
-
 function search(event) {
   event.preventDefault();
 let cityName = document.querySelector("#city")
@@ -72,6 +71,7 @@ function convertToCelsius(event) {
 function getCurrentPosition() {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
+
 function showPosition (position) {
   function showTemperatureWindSpeedHumidityCity (response){
     console.log(response);
@@ -107,27 +107,55 @@ console.log(apiURLGeoloc);
 axios.get(apiURLGeoloc).then(showTemperatureWindSpeedHumidityCity);
   }
 
-  
+
+function displayForecastForNamedCity(event) {
+  //event.preventDefault();
+  let city = document.querySelector("#namedCity")
+
+  function showEverything (response){
+  let temperature = Math.round(response.data.main.temp);
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = temperature;
+
+  let humidityToday = Math.round(response.data.main.humidity);
+  let humidity = document.querySelector("#humidityToday");
+  humidity.innerHTML = humidityToday;
+
+  let windSpeedToday = Math.round(response.data.wind.speed);
+  //console.log(windSpeedToday);
+  let windSpeed = document.querySelector("#windSpeedToday");
+  windSpeed.innerHTML = windSpeedToday;
+}
+
+let apiKey = `fdaeb70f86d9811e4917af5701e5fdf2`;
+let webAdress = `https://api.openweathermap.org/data/2.5/weather?`;
+let unit = `metric`;
+let apiURL = `${webAdress}q=${city}&appid=${apiKey}&units=${unit}`;
+console.log(apiURL);
+axios.get(apiURL).then(showEverything);
+  }
+
 function main() {
 let currentTime = new Date();
 let dateElement = document.querySelector("#current-date");
 dateElement.innerHTML = formatTime(currentTime);
 
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
-
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit)
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
-
 let currentCity = document.querySelector("#currentPosition")
 currentCity.addEventListener("click", getCurrentPosition);
 
+let namedCityElement = document.querySelector("#namedCity");
+namedCityElement.addEventListener("click", displayForecastForNamedCity);
 }
+
+
 // function showTemperatureWindSpeedHumidity (response){
  
 //   let temperature = Math.round(response.data.main.temp);
@@ -166,32 +194,7 @@ currentCity.addEventListener("click", getCurrentPosition);
 
 //axios.get(apiURL).then(showTemperature);
 
-// let weather = {
-//   paris: {
-//     temp: 19.7,
-//     humidity: 80
-//   },
-//   tokyo: {
-//     temp: 17.3,
-//     humidity: 50
-//   },
-//   lisbon: {
-//     temp: 30.2,
-//     humidity: 20
-//   },
-//   "san francisco": {
-//     temp: 20.9,
-//     humidity: 100
-//   },
-//   oslo: {
-//     temp: -5,
-//     humidity: 20
-//   }
-// };
 
-// function convertCelsiumToFarangeit(celsius) {
-//   return Math.round((celsius * 9) / 5 + 32);
-// }
 
 // //як викликати функцію для кожного міста атрибута
 
@@ -239,34 +242,6 @@ currentCity.addEventListener("click", getCurrentPosition);
 // //} else {
 // //якщо міста в списку немає то вивести текст
 // //   alert(`Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${sydney}`)
-
-
-// // if (city= null) {
-// //     let city = prompt("Enter a city");
-// //   } else {
-// //     if (city = weather[city]) {
-// //       alert(`It is currently ${Math.round(weather[city].temp)}°C (${weather[city].tempFer}°F) in ${city} with a humidity of ${weather.paris.humidity}%`)
-// //        } else{
-// //          if (city = "tokyo") {
-// //           alert(`It is currently ${Math.round(weather.tokyo.temp)}°C (${weather.tokyo.tempFer}°F) in Tokyo with a humidity of ${weather.tokyo.humidity}%`)
-// //         } else {
-// //           if (city = "lisbon") {
-// //             alert(`It is currently ${Math.round(weather.lisbon.temp)}°C (${weather.lisbon.tempFer}°F) in Lisbon with a humidity of ${weather.lisbon.humidity}%`)
-// //           } else {
-// //             if (city = "san francisco") {
-// //               alert(`It is currently ${Math.round(weather["san francisco"].temp)}°C (${weather["san francisco"].tempFer}°F) in San Francisco with a humidity of ${weather["san francisco"].humidity}%`)
-// //             } else {
-// //               if (city = "oslo") {
-// //                 alert(`It is currently ${Math.round(weather.oslo.temp)}°C (${weather.oslo.tempFer}°F) in Oslo with a humidity of ${weather.oslo.humidity}%`)
-// //               } else {
-// //                 alert(`Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`)
-// //               }
-// //             }
-// //           }
-// //         }
-// //        }
-// // };
-  
   
 
 
