@@ -29,10 +29,10 @@ class="css">
                <div class="col-9">
                     <div class="row" id="namedCity">
                       <div class="col"><a href="#" data-value="Irpin">Irpin</a></div>
-                      <div class="col"><a href="#" class="">Krakow</a></div>
-                      <div class="col"><a href="#" class="">Eindhoven</a></div>
-                      <div class="col"><a href="#" class="">Sofia</a></div>
-                      <div class="col"><a href="#" class="">Drogheda</a></div>
+                      <div class="col"><a href="#" data-value="Krakow">Krakow</a></div>
+                      <div class="col"><a href="#" data-value="Eindhoven">Eindhoven</a></div>
+                      <div class="col"><a href="#" data-value="Sofia">Sofia</a></div>
+                      <div class="col"><a href="#" data-value="Drogheda">Drogheda</a></div>
                     </div>
                </div>
                <div class="col-3">
@@ -70,7 +70,7 @@ class="css">
                 <h2 id="city">Kyiv</h2>
                 <ul>
                 <li> Last updated: <span id="current-date">Monday</span></li>
-                <li>Clouds</li>
+                <li id="description">Clouds</li>
                 <li>Humidity: <span id="humidityToday">77</span>%</li>
                 <li>Wind: <span id="windSpeedToday">1</span>m/s</li>
                 </ul>
@@ -81,7 +81,10 @@ class="css">
               <span class="units">
               <a href="#" id="celsius-link">°C</a> |
               <a href="#" id="fahrenheit-link">°F</a>
-              </span>               
+              <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="icon" id = "icon">
+              
+            
+            </span>               
               </div>
             </div>
            </div>
