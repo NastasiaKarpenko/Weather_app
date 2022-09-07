@@ -1,4 +1,4 @@
-document.addEventListener("onload", main);
+window.addEventListener("load", main);
 
 let apiKey = `fdaeb70f86d9811e4917af5701e5fdf2`;
 let unit = `metric`;
