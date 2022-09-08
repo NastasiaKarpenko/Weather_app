@@ -20,7 +20,7 @@ let webAdress = `https://api.openweathermap.org/data/2.5/weather?`;
 
 function main() {
   let celsiusTemperature = null;  
-  search(Kyiv);
+  search("Kyiv");
   let currentTime = new Date();
   let dateElement = document.querySelector("#current-date");
   let searchForm = document.querySelector("#search-form");
