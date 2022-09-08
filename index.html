@@ -67,17 +67,17 @@ class="css">
             </div>
             <div class="row"><!--third one - city + temperature>-->
               <div class="col-5">
-                <h2 id="city">Kyiv</h2>
+                <h2 id="city"></h2>
                 <ul>
-                <li> Last updated: <span id="current-date">Monday</span></li>
-                <li id="description">Clouds</li>
-                <li>Humidity: <span id="humidityToday">77</span>%</li>
-                <li>Wind: <span id="windSpeedToday">1</span>m/s</li>
+                <li> Last updated: <span id="current-date"></span></li>
+                <li id="description"></li>
+                <li>Humidity: <span id="humidityToday"></span>%</li>
+                <li>Wind: <span id="windSpeedToday"></span>m/s</li>
                 </ul>
 
               </div>
               <div class="col-6">
-              <span class="temperature" id="temperature">19</span>
+              <span class="temperature" id="temperature"></span>
               <span class="units">
               <a href="#" id="celsius-link">°C</a> |
               <a href="#" id="fahrenheit-link">°F</a>
@@ -90,38 +90,24 @@ class="css">
            </div>
          
            <div class="col-3">
-            <div class="row">
+            <div class="row" id="forecast">
             <div class="col">
-            22℃ 🌤 Tue
+              
+                        <img src="http://openweathermap.org/img/wn/04n@2x.png" alt="icon"
+                        width="42">
+                        <span class="weather-forecast-date">Thu</span>
+                        <span class="weather-forecast-temperature-max">18°</span>
+                        <span class="weather-forecast-temperature-min">12°</span>
             </div>
             </div>
-            <div class="row">
-            <div class="col">
-            17℃  🌧 Wed
-            </div>
-            </div>
-            <div class="row">
-            <div class="col">
-            19℃ 🌤 Thu
-            </div>
-            </div>
-            <div class="row">
-            <div class="col">
-            16℃ 🌦 Fri
-            </div>
-            </div>
-            <div class="row">
-            <div class="col">
-            21℃ 🌤 Sat
-            </div>
-    </div>
+
            </div>
          </div>  
    
       </div>
     </div>
+      </div>
   </div>
-</div>
 
 </body>
 </html>

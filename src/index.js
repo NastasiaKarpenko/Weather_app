@@ -12,25 +12,16 @@ let days = [
   "Sat"]
 
 let webAdress = `https://api.openweathermap.org/data/2.5/weather?`;
-
-// let temperature = Math.round(response.data.main.temp);
-let temperatureElement = document.querySelector("#temperature");
-  
-// let humidityToday = Math.round(response.data.main.humidity);
+let celsiusTemperature = null;  
 let humidity = document.querySelector("#humidityToday");
-
-// let windSpeedToday = Math.round(response.data.wind.speed);
 let windSpeed = document.querySelector("#windSpeedToday");
-
 let cityName = document.querySelector("#city");
-// let foundedCity = response.data.name;
 let cityInput = document.querySelector("#inputCity");
-
-// let latitude = position.coords.latitude;
-// let longitude = position.coords.longitude;
 
 
 function main() {
+  
+  // search("Kyiv");
   let currentTime = new Date();
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatTime(currentTime);
@@ -67,7 +58,7 @@ function formatTime(date){
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  // let temperatureElement = document.querySelector("#temperature");
+  let temperatureElement = document.querySelector("#temperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round((temperature *9) / 5 + 32 );
@@ -75,7 +66,7 @@ function convertToFahrenheit(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
-  // let temperatureElement = document.querySelector("#temperature");
+  let temperatureElement = document.querySelector("#temperature");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
   temperatureElement.innerHTML = Math.round((temperature -32) * 5 / 9 );
@@ -86,7 +77,7 @@ function getCurrentPosition() {
 }
 
 function search(event) {
-  event.preventDefault();
+event.preventDefault();
 let cityName = document.querySelector("#city")
 let cityInput = document.querySelector("#inputCity")
 cityName.innerHTML = cityInput.value;
@@ -102,7 +93,6 @@ cityName.innerHTML = cityInput.value;
   humidity.innerHTML = humidityToday;
 
   let windSpeedToday = Math.round(response.data.wind.speed);
-  // //console.log(windSpeedToday);
   let windSpeed = document.querySelector("#windSpeedToday");
   windSpeed.innerHTML = windSpeedToday;
 
@@ -136,7 +126,6 @@ function showPosition (position) {
     humidity.innerHTML = humidityToday;
   
     let windSpeedToday = Math.round(response.data.wind.speed);
-    // //console.log(windSpeedToday);
     let windSpeed = document.querySelector("#windSpeedToday");
     windSpeed.innerHTML = windSpeedToday;
 
@@ -207,6 +196,54 @@ let apiURL = `${webAdress}q=${city}&appid=${apiKey}&units=${unit}`;
 axios.get(apiURL).then(showEverything);
 
   }
+
+  // function displayForecast(response){
+    
+    // let forecast = response.data.daily;
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = `<div class = "forecastForFiveDays">`;
+    // forecast.forEach(function(forecastDay, index){
+    //     if (index<6) {
+        forecastHTML = forecastHTML + `
+        <div class = "row">
+        <div class="col">
+          
+                    <img src="http://openweathermap.org/img/wn/04n@2x.png" alt="icon"
+                    width="42">
+                    <span class="weather-forecast-date">Thu</span>
+                    <span class="weather-forecast-temperature-max">18°</span>
+                    <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+        </div>`;
+                        // <div class="weather-forecast-date">
+                        // ${formatDay(forecastDay.dt)}</div>
+
+                        // <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png">
+                        // <div class="weather-forecast-temperature">
+                        //     <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span>
+                        //     <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
+                        //     </div>
+                        //  </div>
+                        //  `;
+    //     }
+    // });      
+    forecastHTML = forecastHTML + `
+    <div class = "row">
+    <div class="col">
+          
+                    <img src="http://openweathermap.org/img/wn/04n@2x.png" alt="icon"
+                    width="42">
+                    <span class="weather-forecast-date">Thu</span>
+                    <span class="weather-forecast-temperature-max">18°</span>
+                    <span class="weather-forecast-temperature-min">12°</span>
+      </div>
+      </div>`;
+forecastHTML = forecastHTML + `</div>`;
+console.log(forecastHTML);
+// forecastElement.innerHTML  = forecastHTML;// }
+
+
+// function getForecast (coordinates){
 
 
 
@@ -292,5 +329,3 @@ axios.get(apiURL).then(showEverything);
 //     //} else {
 //         //якщо міста в списку немає то вивести текст
 //      //   alert(`Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${sydney}`)
-    
-      
