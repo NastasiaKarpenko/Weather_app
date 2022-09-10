@@ -18,29 +18,29 @@ h2 {
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
-  margin-bottom: 0;
+  margin: 10px 0 0 0;
 }
 
 ul {
-  margin: 0 0 10px;
   padding: 0;
 }
 
 li {
   font-size: 16px;
   font-weight: 100;
-  height: 19px;
+  height: 20px;
   line-height: 1;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 10px 0;
   display: block;
+  color: #B2B0BC;
 }
 
 a {
   text-decoration: none;
   cursor: default;
-  color: #ec6e4b;
+  color: #B2B0BC;
 }
 
 #currentPosition{
@@ -55,8 +55,13 @@ a {
   border-color: #989899;
 
 }
-#namedCity{
-/* margin: 6px 0 0 0; */
+a:hover{
+    color: #ec6e4b;
+    
+  }
+
+#search-form{
+  border-color: #ec6e4b;
 }
 
 li::first-letter {
@@ -70,4 +75,37 @@ li::first-letter {
 
 #signature {
   padding-top: 10px;
+}
+
+#colored-data, .weather-forecast-temperature-max{
+  color: #ec6e4b;
+  }
+  .weather-forecast-temperature-min{
+    color: #B2B0BC;
+  }
+
+.weather-forecast-date{
+  font-weight: 100;
+}
+
+  #temperature{
+    color: #49484A;
+    font-size: 50px;
+    line-height: 1;
+    font-weight: 400;
+    margin-top: 20px;
+  
+  }
+
+  #icon {
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+
+}
+
+.units{
+  position: relative;
+    font-size: 16px;
+    top: -34px;
 }
